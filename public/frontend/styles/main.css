@@ -198,3 +198,41 @@ header .btn-get-started:hover {
   color: #fff;
 }
 /*# sourceMappingURL=main.css.map */
+
+/* Details Page */
+
+.section-details-header {
+    min-height: 200px;
+    background: #b1b1b1;
+    margin-top: -100px;
+}
+
+.section-details-content {
+    margin-top: -25px;
+}
+
+.section-details-content .breadcrumb-item.active{
+    font-weight: bold;
+}
+
+.section-details-content .card-details{
+    padding: 25px;
+}
+
+.section-details-content .item-info th{
+    font-weight: bold;
+    font-size: 20px;
+    color: #444444;
+}
+
+.section-details-content .item-info td{
+    font-weight: 200;
+    font-size: 20px;
+    color: #525252;
+}
+
+.section-details-content .img-small{
+    width: auto;
+    height: 300px;
+    object-fit: contain;
+}
