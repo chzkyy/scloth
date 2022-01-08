@@ -44,6 +44,14 @@ class DatabaseSeeder extends Seeder
             'price' => '299000'
         ]);
 
+        Cloth::create([
+            'category_id' => 1,
+            'image' => 'frontend/images/pi4.jpg',
+            'name' => 'Kaos Biru Tua Pria',
+            'slug' => 'kaos-biru-Tua-pria',
+            'price' => '199000'
+        ]);
+
         //Women Cloths (examples)
         Cloth::create([
             'category_id' => 2,
@@ -89,6 +97,11 @@ class DatabaseSeeder extends Seeder
 
         Detail::create([
             'cloth_id' => 4,
+            'description' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
+        ]);
+
+        Detail::create([
+            'cloth_id' => 5,
             'description' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
         ]);
     }
