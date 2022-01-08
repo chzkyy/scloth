@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CatalogueController;
+use App\Http\Controllers\DetailController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +19,9 @@ use Illuminate\Support\Facades\Route;
 // home page
 Route::get('/', [HomeController::class, 'index'])
     ->name('home');
+
+Route::get('/detail/{slug}', [DetailController::class, 'index'])
+    ->name('detail');
+
+Route::get('/catalogue/{id}', [CatalogueController::class, 'index'])
+    ->name('catalogue');
