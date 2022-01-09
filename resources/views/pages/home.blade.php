@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    Home
+    SCloth
 @endsection
 
 @section('content')
@@ -18,7 +18,7 @@
         </a>
     </header>
     {{--  akhir header  --}}
-    
+
     <main>
 
         {{--  Stats section  --}}
@@ -56,54 +56,19 @@
             <div class="container">
                 <div class="section-popular-shop row justify-content-center">
 
-                    <div class="col-sm-6 col-md-4 col-lg-3">
-                        <div class="card-shop text-center d-flex flex-column"
-                            style="background-image: url('frontend/images/pi1.jpg');">
-                            <div class="shop-button mt-auto">
-                                <div class="title-product bg-light">Category 1</div>
-                                <a href="#" class="btn btn-shop-details mt-4 px-4">
-                                    View Details
-                                </a>
+                    @foreach ($category as $item)
+                        <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="card-shop text-center d-flex flex-column"
+                                style="background-image: url({{ 'images/' . $item->cloths->first()->image }});">
+                                <div class="shop-button mt-auto">
+                                    <div class="title-product bg-light">{{ $item->category }}</div>
+                                    <a href="{{ route('catalogue' , [$item->id]) }}" class="btn btn-shop-details mt-4 px-4">
+                                        View Catalogue
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="col-sm-6 col-md-4 col-lg-3">
-                        <div class="card-shop text-center d-flex flex-column"
-                            style="background-image: url('frontend/images/pi2.jpg');">
-                            <div class="shop-button mt-auto">
-                                <div class="title-product bg-light">Category 2</div>
-                                <a href="#" class="btn btn-shop-details mt-4 px-4">
-                                    View Details
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-6 col-md-4 col-lg-3">
-                        <div class="card-shop text-center d-flex flex-column"
-                            style="background-image: url('frontend/images/pi3.jpg');">
-                            <div class="shop-button mt-auto">
-                                <div class="title-product bg-light">Category 3</div>
-                                <a href="#" class="btn btn-shop-details mt-4 px-4">
-                                    View Details
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-6 col-md-4 col-lg-3">
-                        <div class="card-shop text-center d-flex flex-column"
-                            style="background-image: url('frontend/images/pi4.jpg');">
-                            <div class="shop-button mt-auto">
-                                <div class="title-product bg-light">Category 4</div>
-                                <a href="#" class="btn btn-shop-details mt-4 px-4">
-                                    View Details
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
+                    @endforeach
                 </div>
             </div>
         </section>
@@ -117,7 +82,7 @@
                         <h2>Testimonial</h2>
                         <p>
                             Moments were giving them
-                            <br />
+                            <br>
                             the best experience
                         </p>
                     </div>
@@ -129,13 +94,14 @@
         <section class="section-testimonials-content" id="testimonialsContent">
             <div class="container">
                 <div class="section-popular-shop row justify-content-center match-height">
-                    
+
                     <div class="col-sm-6 col-md-6 col-lg-4">
                         <div class="card card-testimonial text-center">
                             <div class="testimonial-content">
-                                <h3 class="mb-4">Lorem ipsum</h3>
+                                <h3 class="mb-4">Jonas</h3>
                                 <p class="testimonials">
-                                    “ Lorem ipsum dolor sit amet consectetur adipisicing elit. “
+                                    “Harga murah. Barangnya bagus dan sesuai.
+                                    Pengirimannya juga cepat“
                                 </p>
                             </div>
                         </div>
@@ -144,9 +110,10 @@
                     <div class="col-sm-6 col-md-6 col-lg-4">
                         <div class="card card-testimonial text-center">
                             <div class="testimonial-content">
-                                <h3 class="mb-4">Lorem ipsum</h3>
+                                <h3 class="mb-4">Shania</h3>
                                 <p class="testimonials">
-                                    “Lorem ipsum dolor sit amet consectetur adipisicing elit.“
+                                    “Ukuran pas. Barangnya sesuai.
+                                    Cepat dan aman. Puas deh“
                                 </p>
                             </div>
                         </div>
@@ -155,9 +122,10 @@
                     <div class="col-sm-6 col-md-6 col-lg-4">
                         <div class="card card-testimonial text-center">
                             <div class="testimonial-content mb-auto">
-                                <h3 class="mb-4">Lorem ipsum</h3>
+                                <h3 class="mb-4">Nana</h3>
                                 <p class="testimonials">
-                                    “Lorem ipsum dolor sit amet consectetur adipisicing elit.“
+                                    “Kualitas produknya terjamin. Nyaman dipakai.
+                                    Ukuran pakaiannya pas banget.“
                                 </p>
                             </div>
                         </div>

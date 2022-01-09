@@ -1,6 +1,11 @@
 <?php
 
+use App\Http\Controllers\CatalogueController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DetailController;
 use App\Http\Controllers\HomeController;
+use GuzzleHttp\Middleware;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,3 +22,24 @@ use Illuminate\Support\Facades\Route;
 // home page
 Route::get('/', [HomeController::class, 'index'])
     ->name('home');
+
+Route::get('/detail/{slug}', [DetailController::class, 'index'])
+    ->name('detail');
+
+Route::get('/catalogue/{id}', [CatalogueController::class, 'index'])
+    ->name('catalogue');
+
+//Dashboard Page
+Route::get('/dashboard', [DashboardController::class, 'index'])
+    ->name('dashboard')
+    ->Middleware('auth');
+
+Route::get('/dashboard/category', [DashboardController::class, 'indexCategory'])
+    ->name('dashboard.category')
+    ->Middleware('auth');
+
+Route::get('/dashboard/catalogue', [DashboardController::class, 'indexCatalogue'])
+    ->name('dashboard.catalogue')
+    ->Middleware('auth');
+
+Auth::routes();

@@ -9,7 +9,8 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $items = Category::with(['cloths'])->get();
-        return view('pages.home', ['items' => $items]);
+        return view('pages.home', [
+            'category'  => Category::with(['cloths'])->get(),
+        ]);
     }
 }
