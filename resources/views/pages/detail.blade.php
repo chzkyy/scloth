@@ -28,7 +28,11 @@
                     <div class="col-lg-8 pl-lg-0">
                         <div class="card card-details">
                             <h1> {{ $item->name }} </h1>
+<<<<<<< HEAD
                             <img src="{{ url('images/' . $item->image) }}" class="rounded mx-auto d-block">
+=======
+                            <img src="{{ url($item->image) }}" class="rounded mx-auto d-block">
+>>>>>>> 9dea6018ea1879c9cb23a6bfc56b900819cff2c0
                             <h2>Deskripsi Pakaian</h3>
                             {{ $item->detail->description }}
                         </div>

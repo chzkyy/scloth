@@ -29,7 +29,11 @@
                     @foreach ($items as $item)
                     <div class="col-sm-3 my-2">
                         <div class="card card-details p-0">
+<<<<<<< HEAD
                             <img src="{{ url('images/' . $item->image) }}" class="img-small">
+=======
+                            <img src="{{ url($item->image) }}" class="img-small">
+>>>>>>> 9dea6018ea1879c9cb23a6bfc56b900819cff2c0
                             <h5 class="text-center"> {{ $item->name }} </h5>
                             <a href="{{ route('detail' , $item->slug) }}" class="btn btn-secondary mt-0">
                                 View Details

@@ -56,6 +56,7 @@
             <div class="container">
                 <div class="section-popular-shop row justify-content-center">
 
+<<<<<<< HEAD
                     @foreach ($category as $item)
                         <div class="col-sm-6 col-md-4 col-lg-3">
                             <div class="card-shop text-center d-flex flex-column"
@@ -69,6 +70,22 @@
                             </div>
                         </div>
                     @endforeach
+=======
+                    @foreach ($items as $item)
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="card-shop text-center d-flex flex-column"
+                            style="background-image: url('{{ $item->cloths->first()->image }}');">
+                            <div class="shop-button mt-auto">
+                                <div class="title-product bg-light">{{ $item->category }}</div>
+                                <a href="{{ route('catalogue' , $item->id) }}" class="btn btn-shop-details mt-4 px-4">
+                                    View Catalogue
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+
+>>>>>>> 9dea6018ea1879c9cb23a6bfc56b900819cff2c0
                 </div>
             </div>
         </section>

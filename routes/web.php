@@ -1,7 +1,10 @@
 <?php
 
 use App\Http\Controllers\CatalogueController;
+<<<<<<< HEAD
 use App\Http\Controllers\DashboardController;
+=======
+>>>>>>> 9dea6018ea1879c9cb23a6bfc56b900819cff2c0
 use App\Http\Controllers\DetailController;
 use App\Http\Controllers\HomeController;
 use GuzzleHttp\Middleware;
@@ -28,6 +31,7 @@ Route::get('/detail/{slug}', [DetailController::class, 'index'])
 
 Route::get('/catalogue/{id}', [CatalogueController::class, 'index'])
     ->name('catalogue');
+<<<<<<< HEAD
 
 //Dashboard Page
 Route::get('/dashboard', [DashboardController::class, 'index'])
@@ -43,3 +47,5 @@ Route::get('/dashboard/catalogue', [DashboardController::class, 'indexCatalogue'
     ->Middleware('auth');
 
 Auth::routes();
+=======
+>>>>>>> 9dea6018ea1879c9cb23a6bfc56b900819cff2c0

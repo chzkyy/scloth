@@ -46,7 +46,11 @@ class DatabaseSeeder extends Seeder
 
         Cloth::create([
             'category_id' => 1,
+<<<<<<< HEAD
             'image' => 'pi4.jpg',
+=======
+            'image' => 'frontend/images/pi4.jpg',
+>>>>>>> 9dea6018ea1879c9cb23a6bfc56b900819cff2c0
             'name' => 'Kaos Biru Tua Pria',
             'slug' => 'kaos-biru-Tua-pria',
             'price' => '199000'
