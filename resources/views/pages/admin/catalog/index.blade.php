@@ -11,7 +11,7 @@
       <!-- Page Heading -->
       <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">{{ $title }}</h1>
-        <a href="" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+        <a href="{{ route('dashboard.catalogue.create') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
             <i class="fas fa-plus fa-sm text-white-50"></i>Add Catalog</a>
       </div>
 
@@ -49,18 +49,18 @@
                             @forelse($cloth as $item)
                             <tr>
                                     <td>{{ $item->id }}</td>
-                                    <td><img src="{{ asset('images/'.$item->image) }}" alt="{{ $item->name }}" width="100px" height="100px"></td>
+                                    <td><img src="{{ asset('images/'.$item->image) }}" alt="{{ $item->name }}" width="100px"></td>
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->category->category }}</td>
                                     <td>Rp. {{ number_format($item->price,0,",",".") }}</td>
                                     <td>
-                                        <a href="" class="btn btn-primary">
+                                        <a href="{{ route('dashboard.catalogue.detail',[$item->id]) }}" class="btn btn-primary">
                                             <i class="fa fa-eye"></i>
                                         </a>
-                                        <a href="" class="btn btn-info">
+                                        <a href="{{ route('dashboard.catalogue.edit',[$item->id]) }}" class="btn btn-info">
                                             <i class="fa fa-pencil-alt"></i>
                                         </a>
-                                        <form action="" class="d-inline">
+                                        <form action="{{ route('dashboard.catalogue.delete',[$item->id]) }}" class="d-inline">
                                             @csrf
                                             <button class="btn btn-danger">
                                                 <i class="fa fa-trash"></i>

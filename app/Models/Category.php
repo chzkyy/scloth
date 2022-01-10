@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
-    protected $fillable = ['category'];
+    protected $fillable = ['category', 'image'];
 
     public function cloths(){
         return $this->hasMany(Cloth::class, 'category_id', 'id');

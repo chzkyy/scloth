@@ -10,11 +10,9 @@ class DetailController extends Controller
 {
     public function index($slug){
         return view('pages.detail', [
-            'category'  => Category::with(['cloths'])
-                            ->get(),
-            'item'      => Cloth::with(['detail', 'category'])
-                            ->where('slug', $slug)
-                            ->firstOrFail(),
+            'title'     => 'Detail Product',
+            'category'  => Category::with(['cloths'])->get(),
+            'item'      => Cloth::with(['detail', 'category'])->where('slug', $slug)->firstOrFail(),
         ]);
     }
 }

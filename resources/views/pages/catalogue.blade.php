@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    SCloth
+    {{ $title }}
 @endsection
 
 @section('content')
@@ -15,7 +15,7 @@
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item" aria-current="page">
-                                    {{ $name->category->category }}
+                                    {{ $title }}
                                 </li>
                                 <li class="breadcrumb-item active" aria-current="page">
                                     Catalogue
@@ -26,21 +26,25 @@
                 </div>
 
                 <div class="row">
-                    @foreach ($items as $item)
+                @if (count($products) >= 1)
+                    @foreach ($products as $item)
                     <div class="col-sm-3 my-2">
                         <div class="card card-details p-0">
-<<<<<<< HEAD
                             <img src="{{ url('images/' . $item->image) }}" class="img-small">
-=======
-                            <img src="{{ url($item->image) }}" class="img-small">
->>>>>>> 9dea6018ea1879c9cb23a6bfc56b900819cff2c0
-                            <h5 class="text-center"> {{ $item->name }} </h5>
+                            <hr>
+                            <span class="text-center h5 mb-3"> {{ $item->name }} </span>
+                            <span class="text-center h5 mb-3"> Rp. {{ number_format($item->price) }} </span>
                             <a href="{{ route('detail' , $item->slug) }}" class="btn btn-secondary mt-0">
                                 View Details
                             </a>
                         </div>
                     </div>
                     @endforeach
+                @else
+                <div class="container text-center my-5">
+                    <h1>No Item</h1>
+                </div>
+                @endif
                 </div>
 
             </div>

@@ -19,9 +19,7 @@
 
     <!-- Page Wrapper -->
     <div id="wrapper">
-
         @include('includes.admin.sidebar')
-
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 

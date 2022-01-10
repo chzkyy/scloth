@@ -10,7 +10,8 @@ class HomeController extends Controller
     public function index()
     {
         return view('pages.home', [
-            'category'  => Category::with(['cloths'])->get(),
+            'title'         => 'Home',
+            'category'      => Category::with(['cloths'])->get(),
         ]);
     }
 }

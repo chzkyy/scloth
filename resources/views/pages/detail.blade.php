@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    SCloth
+    {{ $title }}
 @endsection
 
 @section('content')
@@ -16,8 +16,11 @@
                                 <li class="breadcrumb-item" aria-current="page">
                                     {{ $item->category->category }}
                                 </li>
+                                <li class="breadcrumb-item" aria-current="page">
+                                    Catalogue
+                                </li>
                                 <li class="breadcrumb-item active" aria-current="page">
-                                    Details
+                                    {{ $item->name }}
                                 </li>
                             </ol>
                         </nav>
@@ -28,12 +31,10 @@
                     <div class="col-lg-8 pl-lg-0">
                         <div class="card card-details">
                             <h1> {{ $item->name }} </h1>
-<<<<<<< HEAD
+                            <hr>
                             <img src="{{ url('images/' . $item->image) }}" class="rounded mx-auto d-block">
-=======
-                            <img src="{{ url($item->image) }}" class="rounded mx-auto d-block">
->>>>>>> 9dea6018ea1879c9cb23a6bfc56b900819cff2c0
-                            <h2>Deskripsi Pakaian</h3>
+                            <h2 class="mt-5">Deskripsi Pakaian</h3>
+                            <hr>
                             {{ $item->detail->description }}
                         </div>
                     </div>

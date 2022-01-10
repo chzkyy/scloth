@@ -11,7 +11,7 @@
       <!-- Page Heading -->
       <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">{{ $title }}</h1>
-        <a href="" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+        <a href="{{ route('dashboard.category.create') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
             <i class="fas fa-plus fa-sm text-white-50"></i> Add Category</a>
       </div>
 
@@ -38,7 +38,9 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
+                                <th>Category Image</th>
                                 <th>Category Name</th>
+                                <th>Produk items</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -46,21 +48,19 @@
                             @forelse($category as $item)
                                 <tr>
                                     <td>{{ $item->id }}</td>
+                                    <td><img src="{{ asset('images/'.$item->image) }}" alt="{{ $item->name }}" width="100px"></td>
                                     <td>{{ $item->category }}</td>
+                                    <td>{{ $item->cloths->count() }} items</td>
                                     <td>
-                                        <a href="" class="btn btn-primary">
-                                            <i class="fa fa-eye"></i>
-                                        </a>
-                                        <a href="" class="btn btn-info">
+                                        <a href="{{ route('dashboard.category.edit',[$item->id]) }}" class="btn btn-info">
                                             <i class="fa fa-pencil-alt"></i>
                                         </a>
-                                        <form action="" class="d-inline">
+                                        <form action="{{ route('dashboard.category.delete', [$item->id]) }}" class="d-inline">
                                             @csrf
                                             <button class="btn btn-danger">
                                                 <i class="fa fa-trash"></i>
                                             </button>
                                         </form>
-
                                     </td>
                                 </tr>
                             @empty

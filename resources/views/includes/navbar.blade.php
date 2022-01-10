@@ -51,11 +51,11 @@
             <div class="collapse navbar-collapse" id="navb">
                 <ul class="navbar-nav ml-auto mr-3">
                     <li class="nav-item mx-md-2">
-                        <a class="nav-link active" href="{{ route('home') }}">Home</a>
+                        <a class="nav-link {{ $title === 'Home' ? 'active' : '' }}" href="{{ route('home') }}">Home</a>
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
+                        <a class="nav-link dropdown-toggle {{ $title === 'Catalogue' ? 'active' : '' }}" id="navbardrop" data-toggle="dropdown">
                             Category
                         </a>
                         <div class="dropdown-menu">
