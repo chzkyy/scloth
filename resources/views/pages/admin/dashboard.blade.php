@@ -60,7 +60,7 @@
                                 <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Transaction</div>
                                 <div class="row no-gutters align-items-center">
                                     <div class="col-auto">
-                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">Transaction</div>
+                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ $transaction->count() }} Transaction</div>
                                     </div>
                                 </div>
                             </div>

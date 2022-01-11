@@ -24,6 +24,11 @@
                                 </li>
                             </ol>
                         </nav>
+                        @if ($message = Session::get('success'))
+                            <div class="alert alert-success">
+                                <strong>{{ $message }}</strong>
+                            </div>
+                        @endif
                     </div>
                 </div>
 
@@ -34,8 +39,8 @@
                             <hr>
                             <img src="{{ url('images/' . $item->image) }}" class="rounded mx-auto d-block">
                             <h2 class="mt-5">Deskripsi Pakaian</h3>
-                            <hr>
-                            {{ $item->detail->description }}
+                                <hr>
+                                {{ $item->detail->description }}
                         </div>
                     </div>
 
@@ -52,11 +57,23 @@
                                 <tr>
                                     <th width="50%">Price: </th>
                                     <td width="50%" class="text-right">
-                                        Rp. {{ number_format($item->price,0,",",".") }}
+                                        Rp. {{ number_format($item->price, 0, ',', '.') }}
                                     </td>
                                 </tr>
+                                <form action="{{ route('cart.store') }}" method="POST">
+                                    @csrf
+                                    <tr>
+                                        <th>Quantity :</th>
+                                        <td>
+                                            <input type="number" class="w-100 form-control" name="quantity" id="quantity"
+                                                min="1" required value="{{ request('quantity') }}">
+                                            <input type="hidden" name="product_id" value="{{ $item->id }}">
+                                            <input type="hidden" name="image" value="{{ $item->image }}">
+                                        </td>
+                                    </tr>
                             </table>
-                            <button class="btn btn-success" type="submit">Add to Checkout</button>
+                                <button class="btn btn-success mt-3" type="submit">Add to Checkout</button>
+                            </form>
                         </div>
                     </div>
                 </div>

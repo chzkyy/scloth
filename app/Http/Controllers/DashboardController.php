@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Cloth;
 use App\Models\Detail;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,6 +18,7 @@ class DashboardController extends Controller
                 'title'    => 'Dashboard',
                 'category' => Category::all(),
                 'cloth'    => Cloth::all(),
+                'transaction' => Transaction::all(),
             ]);
         } else {
             return redirect('/');

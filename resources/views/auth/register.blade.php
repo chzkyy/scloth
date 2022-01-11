@@ -1,5 +1,9 @@
 @extends('layouts.admin')
 
+@section('title')
+    Register
+@endsection
+
 @section('content')
 
 <div class="container">
@@ -19,6 +23,15 @@
                             <div class="form-group">
                                 <input id="name" type="text" class="form-control form-control-user @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Username">
 
+                                @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <textarea name="address" id="address" style="border-radius: 20px" class="form-control @error('address') is-invalid @enderror" cols="3" rows="3" required autocomplete="address" autofocus placeholder="Address"></textarea>
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

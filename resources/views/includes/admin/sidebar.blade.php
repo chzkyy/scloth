@@ -28,12 +28,6 @@
             <span>Catalogue</span></a>
     </li>
 
-    <li class="nav-item {{ $title === 'Transaction' ? 'active' : '' }}">
-        <a class="nav-link" href="">
-            <i class="fas fa-fw fa-dollar-sign"></i>
-            <span>Transaction</span></a>
-    </li>
-
     <hr class="sidebar-divider">
 
     <!-- Sidebar Toggler (Sidebar) -->

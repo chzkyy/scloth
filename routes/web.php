@@ -1,9 +1,14 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CatalogueController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DetailController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TransactionController;
+use App\Models\Cart;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -19,21 +24,69 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//user 
 // home page
 Route::get('/', [HomeController::class, 'index'])
     ->name('home');
 
-Route::get('/detail/{slug}', [DetailController::class, 'index'])
-    ->name('detail');
-
+// catalogue page
 Route::get('/catalogue/{id}', [CatalogueController::class, 'index'])
     ->name('catalogue');
 
+//detail catalogue page
+Route::get('/detail/{slug}', [DetailController::class, 'index'])
+    ->name('detail');
+
+//cart page
+Route::get('/cart', [CartController::class, 'index'])
+    ->name('cart')
+    ->Middleware('auth');
+
+//add to cart
+Route::post('/cart', [CartController::class, 'store'])
+    ->name('cart.store')
+    ->Middleware('auth');
+
+//update cart
+Route::post('/cart/{id}', [CartController::class, 'update'])
+    ->name('cart.update')
+    ->Middleware('auth');
+
+//cart delete
+Route::get('/cart/{id}', [CartController::class, 'destroy'])
+    ->name('cart.destroy')
+    ->Middleware('auth');
+
+//checkout page
+Route::get('/checkout', [CheckoutController::class, 'index'])
+    ->name('checkout')
+    ->Middleware('auth');
+
+//checkout store
+Route::post('/checkout', [CheckoutController::class, 'store'])
+    ->name('checkout.store')
+    ->Middleware('auth');
+
+//transaction page
+Route::get('/transaction', [TransactionController::class, 'index'])
+    ->name('transaction')
+    ->Middleware('auth');
+
+//transaction store
+Route::post('/transaction', [TransactionController::class, 'store'])
+    ->name('transaction.store')
+    ->Middleware('auth');
+
+//transaction detail
+Route::get('/transaction/{id}', [TransactionController::class, 'show'])
+    ->name('transaction.show')
+    ->Middleware('auth');
+
+//admin 
 //Dashboard Page
 Route::get('/dashboard', [DashboardController::class, 'index'])
     ->name('dashboard')
     ->Middleware('auth');
-
 //Dashboard Category
 Route::get('/dashboard/category', [DashboardController::class, 'indexCategory'])
     ->name('dashboard.category')
@@ -97,6 +150,11 @@ Route::get('/dashboard/catalogue/delete/{id}', [DashboardController::class, 'del
 //detail catalogue
 Route::get('/dashboard/catalogue/detail/{id}', [DashboardController::class, 'detailCatalogue'])
     ->name('dashboard.catalogue.detail')
+    ->Middleware('auth');
+
+//view profile
+Route::get('/profile', [ProfileController::class, 'index'])
+    ->name('profile')
     ->Middleware('auth');
 
 Auth::routes();

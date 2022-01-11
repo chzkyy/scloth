@@ -13,7 +13,7 @@
         <p class="mt-3">
             Here you can find the last collection of the year
         </p>
-        <a href="#" class="btn btn-get-started px-4 mt-4">
+        <a href="#shop" class="btn btn-get-started px-4 mt-4">
             Shop Now
         </a>
     </header>
@@ -41,7 +41,7 @@
         {{--  akhir stats  --}}
 
         {{--  category section  --}}
-        <section class="section-popular" id="popular">
+        <section class="section-popular" id="shop">
             <div class="container">
                 <div class="row">
                     <div class="col text-center section-popular-heading">
@@ -138,7 +138,7 @@
                         <a href="#" class="btn btn-need-help px-4 mt-5 mx-1">
                             I Need Help
                         </a>
-                        <a href="#" class="btn btn-get-started px-4 mt-5 mx-1">
+                        <a href="#shop" class="btn btn-get-started px-4 mt-5 mx-1">
                             Get Started
                         </a>
                     </div>
