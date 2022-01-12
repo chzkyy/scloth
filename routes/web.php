@@ -87,6 +87,7 @@ Route::get('/transaction/{id}', [TransactionController::class, 'show'])
 Route::get('/dashboard', [DashboardController::class, 'index'])
     ->name('dashboard')
     ->Middleware('auth');
+
 //Dashboard Category
 Route::get('/dashboard/category', [DashboardController::class, 'indexCategory'])
     ->name('dashboard.category')
@@ -150,6 +151,11 @@ Route::get('/dashboard/catalogue/delete/{id}', [DashboardController::class, 'del
 //detail catalogue
 Route::get('/dashboard/catalogue/detail/{id}', [DashboardController::class, 'detailCatalogue'])
     ->name('dashboard.catalogue.detail')
+    ->Middleware('auth');
+
+//Dashboard Transaction
+Route::get('/dashboard/transaction', [DashboardController::class, 'indexTransaction'])
+    ->name('dashboard.transaction')
     ->Middleware('auth');
 
 //view profile

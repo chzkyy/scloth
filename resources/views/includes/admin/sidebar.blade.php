@@ -28,6 +28,12 @@
             <span>Catalogue</span></a>
     </li>
 
+    <li class="nav-item {{ $title === 'Transaction' ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('dashboard.transaction') }}">
+            <i class="fas fa-dollar-sign"></i>
+            <span>Transaction</span></a>
+    </li>
+
     <hr class="sidebar-divider">
 
     <!-- Sidebar Toggler (Sidebar) -->

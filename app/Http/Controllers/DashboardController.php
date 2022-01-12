@@ -249,4 +249,15 @@ class DashboardController extends Controller
             return redirect('/');
         }
     }
+
+    //dashboard transaction
+    public function indexTransaction()
+    {
+        return view('pages.admin.transaction.index',[
+            'title'              => 'Transaction',
+            'category'           => Category::with(['cloths'])->get(),
+            'transaction'        => Transaction::first()->get(),
+            'paginate'           => Transaction::paginate(10),
+        ]);
+    }
 }

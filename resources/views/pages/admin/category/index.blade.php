@@ -10,7 +10,7 @@
 
       <!-- Page Heading -->
       <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">{{ $title }}</h1>
+        <h1 class="h3 mb-0 text-gray-800">Dashboard {{ $title }}</h1>
         <a href="{{ route('dashboard.category.create') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
             <i class="fas fa-plus fa-sm text-white-50"></i> Add Category</a>
       </div>
@@ -37,7 +37,7 @@
                     @endif
                         <thead>
                             <tr>
-                                <th>ID</th>
+                                <th>No</th>
                                 <th>Category Image</th>
                                 <th>Category Name</th>
                                 <th>Produk items</th>
